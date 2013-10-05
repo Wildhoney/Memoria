@@ -1,0 +1,26 @@
+{
+  "name": "Memoria",
+  "version": "0.0.1",
+  "description": "Extensible form storage for memorising user inputs.",
+  "main": "index.js",
+  "directories": {
+    "example": "example",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wildhoney/Memoria.git"
+  },
+  "author": "Adam Timberlake",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Wildhoney/Memoria/issues"
+  },
+  "dependencies": {
+    "grunt-cli": "~0.1.9",
+    "grunt-contrib-jshint": "~0.6.4"
+  }
+}
