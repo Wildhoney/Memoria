@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <title>Memoria</title>
     <link type="text/css" rel="stylesheet" href="./css/default.css" />
+    <link type="text/css" rel="stylesheet" href="./../bower_components/semantic-ui/build/packaged/css/semantic.css" />
+
 </head>
 <body>
 
     <form name="contact-form">
 
-        <p>Example built using the wonderful <a href="http://semantic-ui.com/" target="_blank">Semantic UI</a></p>
+        <p>Example built using the wonderful <a href="http://semantic-ui.com/" target="_blank">Semantic UI</a>.</p>
 
         <ul>
             <li>
                 <label for="name">Name:</label>
-                <input type="text" name="name" id="name" />
+                <div class="ui form small input">
+                    <input type="text" name="name" id="name" />
+                </div>
             </li>
             <li>
                 <label for="email">Email:</label>
-                <input type="text" name="email" id="email" />
+                <div class="ui form small input">
+                    <input type="text" name="email" id="email" />
+                </div>
             </li>
             <li>
                 <label for="subject">Subject:</label>
-                <select name="subject" id="subject">
+                <select class="ui form" name="subject" id="subject">
                     <option>General enquiry about your projects</option>
                     <option>Wishing to be a contributor</option>
                     <option>Media enquiry relating to a project</option>
@@ -29,10 +36,12 @@
             </li>
             <li>
                 <label for="message">Message:</label>
-                <textarea name="message" id="message"></textarea>
+                <div class="ui form">
+                    <textarea name="message" id="message"></textarea>
+                </div>
             </li>
             <li>
-                <input type="submit" value="Send Away..." />
+                <input class="ui positive button" type="submit" value="Send Away..." />
             </li>
         </ul>
 

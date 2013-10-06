@@ -1,0 +1,33 @@
+body {
+    padding: 10px 25px;
+}
+
+form ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+form p {
+    padding-bottom: 20px;
+    font-family: "Helvetica Neue", "Helvetica", Arial;
+}
+
+form ul li {
+    padding-bottom: 10px;
+}
+
+form ul li label {
+    clear: both;
+    float: left;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    font-family: "Helvetica Neue", "Helvetica", Arial;
+    font-weight: bold;
+}
+
+form ul li select {
+    height: 40px;
+    width: 300px;
+    border: 1px solid lightgrey;
+}
