@@ -13,6 +13,13 @@
             return;
         }
 
+        if (!localStorage.getItem('memoria')) {
+
+            // Initialise the `localStorage` for Memoria.
+            localStorage.setItem('memoria', JSON.stringify({}));
+
+        }
+
         // Process to discover all valid forms, and the inputs contained within them.
         this._initialiseForms();
 
@@ -28,7 +35,8 @@
          * @property _supportedNodes
          * @type {Array}
          */
-        _supportedNodes: ['input', 'select', 'textarea'],
+//        _supportedNodes: ['input', 'select', 'textarea'],
+        _supportedNodes: ['input', 'textarea'],
 
         /**
          * @method _initialiseForms
@@ -69,7 +77,11 @@
                     }
 
                     // Otherwise we can create the related object, passing in the node and `localStorage` save key.
-                    new delegatorObject(node, saveKey);
+                    var delegator   = new delegatorObject(node, saveKey);
+                    delegator.node  = node;
+                    delegator.key   = saveKey;
+                    delegator.initialise();
+                    delegator._transferValue();
 
                 }
 
