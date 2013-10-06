@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
-            all: ['packages/Memoria.js', 'packages/elements/*.js'],
+            all: ['packages/Memoria.js', 'packages/Element.js', 'packages/elements/*.js'],
             options: {
                 jshintrc: '.jshintrc'
             }
@@ -14,7 +14,7 @@ module.exports = function(grunt) {
                 banner: '/*! <%= pkg.name %> by <%= pkg.author %> created on <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: ['modules/Memoria.js', 'packages/elements/*.js'],
+                src: ['packages/Memoria.js', 'packages/Element.js', 'packages/elements/*.js'],
                 dest: 'dist/<%= pkg.buildName %>.min.js'
             }
         }

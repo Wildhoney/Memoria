@@ -48,7 +48,7 @@
          * @return {void}
          */
         initialise: function initialise() {
-            throw 'Memoria: You should overload the `initialise` method to pass in the event to listen on.';
+            throw 'MEMORIA: You should overload the `initialise` method to pass in the event to listen on.';
         },
 
         /**
@@ -62,8 +62,8 @@
             if (typeof this.node[eventName] === 'undefined') {
 
                 // Throw an exception if we're unable to find the specified event.
-                throw 'Memoria: Unable to find the `' + eventName + '` event on `'
-                        + this.node.nodeName.toLowerCase() +'` node.';
+                throw 'MEMORIA: Unable to find the `' + eventName + '` event on `' +
+                        this.node.nodeName.toLowerCase() +'` node.';
 
             }
 
