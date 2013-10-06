@@ -50,18 +50,20 @@
             // Iterate over each of the forms to obtain their input fields.
             for (var formIndex = 0, maxForms = forms.length; formIndex < maxForms; formIndex++) {
 
-                if (!forms.hasOwnProperty(formIndex)) {
-                    continue;
-                }
-
                 var form    = forms[formIndex],
                     nodes   = this._fetchInputs(form);
 
                 // Iterate over each node to instantiate an object that belongs to that particular node.
                 for (var nodeIndex = 0, maxNodes = nodes.length; nodeIndex < maxNodes; nodeIndex++) {
 
-                    var node            = nodes[nodeIndex],
-                        isCustom        = node.hasAttribute('data-memoria-input'),
+                    var node = nodes[nodeIndex];
+
+                    if (node.getAttribute('type') === 'password') {
+                        // We don't want to support the password inputs because that's confidential information.
+                        continue;
+                    }
+
+                    var isCustom        = node.hasAttribute('data-memoria-input'),
                         objectName      = isCustom  ? 'Element'
                                                     : node.nodeName.charAt(0).toUpperCase() + node.nodeName.slice(1).toLowerCase(),
                         DelegatorObject = isCustom  ? $window.Memoria.Element
@@ -111,10 +113,6 @@
 
             // Iterate over each supported node type index.
             for (var typeIndex = 0, maxTypes = this._supportedNodes.length; typeIndex < maxTypes; typeIndex++) {
-
-                if (!this._supportedNodes.hasOwnProperty(typeIndex)) {
-                    continue;
-                }
 
                 // Extract the valid nodes from the current form object.
                 var nodes = form.querySelectorAll(this._supportedNodes[typeIndex]);
