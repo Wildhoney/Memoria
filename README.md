@@ -31,9 +31,7 @@ By default, Memoria supports a handful of node types. However, what if you're us
 
 ```html
 <div class="options"
-    data-memoria-input="Choice"
-    data-memoria-event="onclick"
-    data-memoria-name="gender">
+    data-memoria-input="Choice" data-memoria-event="onclick" data-memoria-name="gender">
     <div class="option" data-value="Male">Male</div>
     <div class="option" data-value="Female">Female</div>
 </div>
