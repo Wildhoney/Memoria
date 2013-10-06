@@ -106,7 +106,7 @@
         _save: function _save() {
 
             if (!this.key.nodeName) {
-                throw 'Memoria: Attempting to save value "' + this.node[this._attribute] + '" but node does not have a `name`.';
+                throw 'MEMORIA: Attempting to save value "' + this.node[this._attribute] + '" but node does not have a `name`.';
             }
 
             var storage = this._getStorage(),

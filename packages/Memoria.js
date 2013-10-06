@@ -1,4 +1,4 @@
-(function($window) {
+(function($window, $localStorage) {
 
     "use strict";
 
@@ -9,14 +9,14 @@
     $window.Memoria = function Memoria() {
 
         // Determine of `localStorage` is supported by the current browser.
-        if (typeof $window.localStorage === 'undefined') {
+        if (typeof $localStorage === 'undefined') {
             return;
         }
 
-        if (!localStorage.getItem('memoria')) {
+        if (!$localStorage.getItem('memoria')) {
 
             // Initialise the `localStorage` for Memoria.
-            localStorage.setItem('memoria', JSON.stringify({}));
+            $localStorage.setItem('memoria', JSON.stringify({}));
 
         }
 
@@ -130,4 +130,4 @@
 
     }, false);
 
-})(window);
+})(window, window.localStorage);
