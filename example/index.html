@@ -7,11 +7,22 @@
     <link type="text/css" rel="stylesheet" href="./css/default.css" />
     <link type="text/css" rel="stylesheet" href="./../bower_components/semantic-ui/build/packaged/css/semantic.css" />
 
+    <script type="text/javascript" src="./../bower_components/jquery/jquery.js"></script>
+    <script type="text/javascript" src="./../bower_components/semantic-ui/build/packaged/javascript/semantic.js"></script>
+
     <script type="text/javascript" src="./../packages/Memoria.js"></script>
     <script type="text/javascript" src="./../packages/Element.js"></script>
     <script type="text/javascript" src="./../packages/elements/Input.js"></script>
     <script type="text/javascript" src="./../packages/elements/Select.js"></script>
     <script type="text/javascript" src="./../packages/elements/Textarea.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('.ui.dropdown').dropdown();
+        });
+
+    </script>
 
 </head>
 <body>
@@ -34,9 +45,20 @@
                 </div>
             </li>
             <li class="force-height">
-                <label>Response?</label>
+                <label>Response:</label>
                 <input name="response" data-memoria-name="response-yep" type="radio" /> Yep
                 <input name="response" data-memoria-name="response-nope" type="radio" /> Nope
+            </li>
+            <li class="force-height">
+                <label>Gender:</label>
+                <div class="ui dropdown">
+                    <div class="text">Male/Female</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item" data-value="option1">Male</div>
+                        <div class="item" data-value="option2">Female</div>
+                    </div>
+                </div>
             </li>
             <li>
                 <label for="subject">Subject:</label>

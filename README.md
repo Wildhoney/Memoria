@@ -1,7 +1,7 @@
 Memoria
 =======
 
-Extensible form storage for memorising user inputs.
+Memoria is an extensible form storage for memorising user inputs. Never again will you lose form data!
 
 Overloading Event Name
 -------
@@ -23,3 +23,21 @@ Since `input` elements with the type `radio` have the same names, they are indis
 <input name="response" data-memoria-name="response-yep" type="radio" />
 <input name="response" data-memoria-name="response-nope" type="radio" />
 ```
+
+Custom Nodes
+-------
+
+By default, Memoria supports a handful of node types. However, what if you're using a custom JavaScript dropdown? What then? Luckily you're able to indicate a form input by applying the `data-memoria-input` attribute with a value &ndash; the value will be used to load your custom delegator object.
+
+```html
+<div class="ui dropdown" data-memoria-input="Dropdown">
+    <div class="text">Male/Female</div>
+    <i class="dropdown icon"></i>
+    <div class="menu">
+        <div class="item" data-value="option1">Male</div>
+        <div class="item" data-value="option2">Female</div>
+    </div>
+</div>
+```
+
+Which will attempt to load the `Memoria.Custom.Dropdown` object to handle the event and the saving.
