@@ -133,9 +133,7 @@
          * @private
          */
         _getEventName: function _getEventName(defaultEventName) {
-
             return this.node.getAttribute('data-memoria-event') || defaultEventName;
-
         }
 
     };

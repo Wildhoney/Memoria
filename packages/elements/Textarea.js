@@ -14,7 +14,7 @@
      * @extends Memoria.Element
      * @type {Object}
      */
-    $window.Memoria.Textarea.prototype = new $window.Memoria.Element;
+    $window.Memoria.Textarea.prototype = new $window.Memoria.Element();
 
     /**
      * @method initialise

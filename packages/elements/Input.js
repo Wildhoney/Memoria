@@ -14,7 +14,7 @@
      * @extends Memoria.Element
      * @type {Object}
      */
-    $window.Memoria.Input.prototype = new $window.Memoria.Element;
+    $window.Memoria.Input.prototype = new $window.Memoria.Element();
 
     /**
      * @method initialise

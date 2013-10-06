@@ -63,7 +63,7 @@
 
                     var node            = nodes[nodeIndex],
                         objectName      = node.nodeName.charAt(0).toUpperCase() + node.nodeName.slice(1).toLowerCase(),
-                        delegatorObject = $window.Memoria[objectName],
+                        DelegatorObject = $window.Memoria[objectName],
                         saveKey         = {
                             formName    : form.getAttribute('name'),
                             nodeName    : node.getAttribute('name')
@@ -77,7 +77,7 @@
                     }
 
                     // Otherwise we can create the related object, passing in the node and `localStorage` save key.
-                    var delegator   = new delegatorObject(node, saveKey);
+                    var delegator   = new DelegatorObject(node, saveKey);
                     delegator.node  = node;
                     delegator.key   = saveKey;
                     delegator.initialise();

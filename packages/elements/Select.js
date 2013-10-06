@@ -14,6 +14,6 @@
      * @extends Memoria.Element
      * @type {Object}
      */
-    $window.Memoria.Select.prototype = new $window.Memoria.Element;
+    $window.Memoria.Select.prototype = new $window.Memoria.Element();
 
 })(window);
