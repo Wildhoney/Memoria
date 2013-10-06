@@ -38,6 +38,25 @@
         _supportedNodes: ['input', 'select', 'textarea', '*[data-memoria-input]'],
 
         /**
+         * @method clear
+         * @param form {String}
+         * Responsible for clearing the form data from any given form.
+         * @return Boolean
+         */
+        clear: function clear(form) {
+
+            var storage = JSON.parse($localStorage.memoria);
+
+            if (typeof storage[form] === 'undefined') {
+                return false;
+            }
+
+            delete storage[form];
+            $localStorage.memoria = JSON.stringify(storage);
+
+        },
+
+        /**
          * @method _initialiseForms
          * Responsible for locating all the forms on the page that have a "name" attribute, which is the
          * only prerequisite for forms to inherit the Memoria functionality.

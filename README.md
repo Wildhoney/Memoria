@@ -3,6 +3,13 @@ Memoria
 
 Memoria is an extensible form storage for memorising user inputs. Never again will you lose form data!
 
+Clearing Storage
+-------
+
+Since a form submission is no guarantee that the form data was retrieved successfully, Memoria leaves it entirely up to you to clear the stored form data.
+
+Simply invoke `memoria.clear('form-name');` on your form submission, AJAX request `onSuccess` handler, etc... once you're sure the data has been safely received.
+
 Overloading Event Name
 -------
 
