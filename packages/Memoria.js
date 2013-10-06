@@ -149,7 +149,7 @@
 
     };
 
-    document.addEventListener('DOMContentLoaded', function() {
+    $window.document.addEventListener('DOMContentLoaded', function() {
 
         // Listen to the banshees wail!
         $window.memoria = new $window.Memoria();
