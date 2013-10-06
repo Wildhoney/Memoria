@@ -12,6 +12,16 @@ Since a form submission is no guarantee that the form data was retrieved success
 
 Simply invoke `memoria.clear('form-name');` on your form submission, AJAX request `onSuccess` handler, etc... once you're sure the data has been safely received.
 
+```javascript
+onSuccess: function(response) {
+
+    if (response.valid) {
+        memoria.clear('contact-form');
+    }
+    
+}
+```
+
 Overloading Event Name
 -------
 
