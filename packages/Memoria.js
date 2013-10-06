@@ -35,8 +35,7 @@
          * @property _supportedNodes
          * @type {Array}
          */
-//        _supportedNodes: ['input', 'select', 'textarea'],
-        _supportedNodes: ['input', 'textarea'],
+        _supportedNodes: ['input', 'select', 'textarea'],
 
         /**
          * @method _initialiseForms

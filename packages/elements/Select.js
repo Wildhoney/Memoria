@@ -16,4 +16,12 @@
      */
     $window.Memoria.Select.prototype = new $window.Memoria.Element();
 
+    /**
+     * @method initialise
+     * @return {void}
+     */
+    $window.Memoria.Select.prototype.initialise = function initialise() {
+        this._attachEvent(this._getEventName('onchange'));
+    };
+
 })(window);
