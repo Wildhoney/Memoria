@@ -21,7 +21,7 @@
      * @return {void}
      */
     $window.Memoria.Input.prototype.initialise = function initialise() {
-        this._attachEvent('onkeyup');
+        this._attachEvent(this._getEventName('onkeyup'));
     };
 
 })(window);

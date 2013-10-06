@@ -122,6 +122,20 @@
 
             return storage;
 
+        },
+
+        /**
+         * @method _getEventName
+         * @param defaultEventName {String}
+         * Responsible for first checking if the current node has a "data-memoria-event" set, and if it doesn't
+         * then to return what was passed into the method
+         * @return {String}
+         * @private
+         */
+        _getEventName: function _getEventName(defaultEventName) {
+
+            return this.node.getAttribute('data-memoria-event') || defaultEventName;
+
         }
 
     };
