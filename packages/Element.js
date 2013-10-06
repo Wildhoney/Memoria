@@ -34,6 +34,12 @@
         key: null,
 
         /**
+         * @property observer
+         * @type {Object}
+         */
+        observer: null,
+
+        /**
          * @property _attribute
          * @type {String}
          * @default "value"
@@ -48,7 +54,26 @@
          * @return {void}
          */
         initialise: function initialise() {
-            throw 'MEMORIA: You should overload the `initialise` method to pass in the event to listen on.';
+
+            var eventName = this.node.getAttribute('data-memoria-event');
+
+            if (!eventName) {
+                // We were unable to find the event name automatically.
+                throw 'MEMORIA: Unable to automatically find the event name.';
+            }
+
+            this._attachEvent(eventName);
+
+        },
+
+        /**
+         * @method attachObserver
+         * @param observer {Object}
+         * Responsible for adding an observer to the element for implementing hooks.
+         * @return {void}
+         */
+        attachObserver: function attachObserver(observer) {
+            this.observer = observer;
         },
 
         /**
@@ -73,47 +98,65 @@
         },
 
         /**
-         * @method _transferValue
+         * @method transferValue
          * Responsible for detecting if the `localStorage` object has the current set, and if it does
          * to populate the node with its value.
          * @return {void}
-         * @private
          */
-        _transferValue: function _transferValue() {
+        transferValue: function transferValue() {
 
             var storage = this._getStorage(),
                 key     = this.key,
                 value   = storage[key.formName][key.nodeName];
 
             if (!value) {
-
                 // Value doesn't seem to be set in `localStorage`.
                 return;
+            }
+
+            if (this.observer && typeof this.observer.onRetrieval === 'function') {
+
+                // We have an observer and therefore we can let that tell us what to do with the value.
+                this.observer.onRetrieval(this.node, value);
+
+            } else {
+
+                // Otherwise there is a value and so we'll update the node's value to reflect it!
+                this.node[this._attribute] = value;
 
             }
 
-            // Otherwise there is a value and so we'll update the node's value to reflect it!
-            this.node[this._attribute] = value;
-
         },
+
+
 
         /**
          * @method _save
+         * @param event {Object}
          * Responsible for saving the updated value into the `localStorage`.
          * @return {void}
          * @private
          */
-        _save: function _save() {
+        _save: function _save(event) {
 
             if (!this.key.nodeName) {
-                throw 'MEMORIA: Attempting to save value "' + this.node[this._attribute] + '" but node does not have a `name`.';
+                throw 'Memoria: Attempting to save value "' + this.node[this._attribute] + '" but node does not have a `name`.';
             }
 
             var storage = this._getStorage(),
                 key     = this.key;
 
-            // Create the namespace for the node and its related value.
-            storage[key.formName][key.nodeName] = this.node[this._attribute];
+            if (this.observer && typeof this.observer.onEvent === 'function') {
+
+                // We have an observer and therefore we'll retrieve the value from there instead.
+                storage[key.formName][key.nodeName] = this.observer.onEvent(event, this.node);
+
+            } else {
+
+                // Create the namespace for the node and its related value.
+                storage[key.formName][key.nodeName] = this.node[this._attribute];
+
+            }
 
             // Save the new form data into the "memoria" `localStorage` namespace.
             $localStorage.setItem('memoria', JSON.stringify(storage));

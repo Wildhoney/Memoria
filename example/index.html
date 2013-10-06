@@ -9,6 +9,9 @@
 
     <script type="text/javascript" src="./../bower_components/jquery/jquery.js"></script>
     <script type="text/javascript" src="./../bower_components/semantic-ui/build/packaged/javascript/semantic.js"></script>
+    <script type="text/javascript" src="./../bower_components/semantic-ui/build/less/modules/behavior/api.js"></script>
+    <script type="text/javascript" src="./../bower_components/semantic-ui/build/less/modules/behavior/state.js"></script>
+    <script type="text/javascript" src="./../bower_components/semantic-ui/build/less/modules/dropdown.js"></script>
 
     <script type="text/javascript" src="./../packages/Memoria.js"></script>
     <script type="text/javascript" src="./../packages/Element.js"></script>
@@ -18,9 +21,37 @@
 
     <script type="text/javascript">
 
-        $(document).ready(function() {
-            $('.ui.dropdown').dropdown();
-        });
+        Memoria.Choice = {
+
+            onRetrieval: function(container, value) {
+
+                // Find the node with the `data-value` attribute set to the current value from
+                // the `localStorage`.
+                var element = container.querySelectorAll('*[data-value="' + value + '"]')[0];
+                element.classList.add('active');
+
+            },
+
+            onEvent: function(event, container) {
+
+                // Find the other nodes.
+                var nodes = container.querySelectorAll('div.option');
+
+                for (var index = 0; index < nodes.length; index++) {
+                    // Remove all the "active" classes from them.
+                    nodes[index].classList.remove('active');
+                }
+
+                // Apply the active class to the one the user clicked on.
+                event.target.classList.add('active');
+
+                // Find the value of the element to store.
+                return event.target.innerHTML;
+
+            }
+
+        }
+
 
     </script>
 
@@ -51,14 +82,10 @@
             </li>
             <li class="force-height">
                 <label>Gender:</label>
-                <div class="ui dropdown">
-                    <div class="text">Male/Female</div>
-                    <i class="dropdown icon"></i>
-                    <div class="menu">
-                        <div class="item" data-value="option1">Male</div>
-                        <div class="item" data-value="option2">Female</div>
+                    <div class="options" data-memoria-input="Choice" data-memoria-event="onclick" data-memoria-name="gender">
+                        <div class="option" data-value="Male">Male</div>
+                        <div class="option" data-value="Female">Female</div>
                     </div>
-                </div>
             </li>
             <li>
                 <label for="subject">Subject:</label>

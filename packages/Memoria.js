@@ -35,7 +35,7 @@
          * @property _supportedNodes
          * @type {Array}
          */
-        _supportedNodes: ['input', 'select', 'textarea'],
+        _supportedNodes: ['input', 'select', 'textarea', '*[data-memoria-input]'],
 
         /**
          * @method _initialiseForms
@@ -61,8 +61,11 @@
                 for (var nodeIndex = 0, maxNodes = nodes.length; nodeIndex < maxNodes; nodeIndex++) {
 
                     var node            = nodes[nodeIndex],
-                        objectName      = node.nodeName.charAt(0).toUpperCase() + node.nodeName.slice(1).toLowerCase(),
-                        DelegatorObject = $window.Memoria[objectName],
+                        isCustom        = node.hasAttribute('data-memoria-input'),
+                        objectName      = isCustom  ? 'Element'
+                                                    : node.nodeName.charAt(0).toUpperCase() + node.nodeName.slice(1).toLowerCase(),
+                        DelegatorObject = isCustom  ? $window.Memoria.Element
+                                                    : $window.Memoria[objectName],
                         saveKey         = {
                             formName    : form.getAttribute('name'),
                             nodeName    : node.getAttribute('data-memoria-name') || node.getAttribute('name')
@@ -80,8 +83,14 @@
                     delegator.form  = form;
                     delegator.node  = node;
                     delegator.key   = saveKey;
+
+                    if (isCustom) {
+                        // Attach the observer if we're dealing with a custom node.
+                        delegator.attachObserver($window.Memoria[node.getAttribute('data-memoria-input')]);
+                    }
+
                     delegator.initialise();
-                    delegator._transferValue();
+                    delegator.transferValue();
 
                 }
 

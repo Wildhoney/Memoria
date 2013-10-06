@@ -37,3 +37,29 @@ form ul li select {
     width: 300px;
     border: 1px solid lightgrey;
 }
+
+form ul li div.options {
+    float: left;
+    width: 200px;
+}
+
+form ul li div.options div.option {
+    float: left;
+    width: 45%;
+    background-color: #efefef;
+    cursor: pointer;
+    font-size: 11px;
+    text-align: center;
+    margin-right: 5px;
+    transition: all .35s;
+}
+
+form ul li div.options div.option:hover {
+    background-color: darkgray;
+    color: white;
+}
+
+form ul li div.options div.option.active {
+    background-color: indianred;
+    color: white;
+}

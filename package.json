@@ -1,6 +1,6 @@
 {
   "name": "Memoria",
-  "buildName": "Memoria",
+  "buildName": "memoria",
   "version": "0.0.1",
   "description": "Extensible form storage for memorising user inputs.",
   "main": "index.js",

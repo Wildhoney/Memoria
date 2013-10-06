@@ -30,14 +30,18 @@ Custom Nodes
 By default, Memoria supports a handful of node types. However, what if you're using a custom JavaScript dropdown? What then? Luckily you're able to indicate a form input by applying the `data-memoria-input` attribute with a value &ndash; the value will be used to load your custom delegator object.
 
 ```html
-<div class="ui dropdown" data-memoria-input="Dropdown">
-    <div class="text">Male/Female</div>
-    <i class="dropdown icon"></i>
-    <div class="menu">
-        <div class="item" data-value="option1">Male</div>
-        <div class="item" data-value="option2">Female</div>
-    </div>
+<div class="options"
+    data-memoria-input="Choice"
+    data-memoria-event="onclick"
+    data-memoria-name="gender">
+    <div class="option" data-value="Male">Male</div>
+    <div class="option" data-value="Female">Female</div>
 </div>
 ```
 
-Which will attempt to load the `Memoria.Custom.Dropdown` object to handle the event and the saving.
+From the above code &ndash; as seen in <strong>example/index.html</strong>, Memoria will be looking for an `object` called `Memoria.Dropdown`.
+
+Memoria provides two callbacks:
+
+ * `onRetrieval` &ndash; invoked when `localStorage` has found a value pertaining to the current custom element (`data-memoria-name`). Should be used to setup your element visually based on the saved value;
+ * `onEvent` &ndash; invoked when the user triggers the event (`data-memoria-event`). Should be used to return the value you wish to save in `localStorage`;
