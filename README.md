@@ -8,10 +8,10 @@ Memoria is an extensible form storage for memorising user inputs. Never again wi
 Implementation
 -------
 
-Whilst Memoria is zero configuration, there are a few requirements to get it working using native `input` fields.
+Although Memoria is zero configuration, there are a few requirements to get it working using native `input` fields.
 
  * All `form` containers must have a unique `name` attribute per website;
- * All `input`/`select`/`textarea` fields must have a unique `name` or `data-memoria-name` attribute per form;
+ * All `input`/`select`/`textarea` fields must have a unique `name`/`data-memoria-name` attribute per form;
  * All `input` fields with `type` of `radio` must be <a href="https://github.com/Wildhoney/Memoria#problem-of-radio-inputs">implemented specially</a>.
  * All custom input fields must be implemented using the <a href="https://github.com/Wildhoney/Memoria#custom-nodes">provided hooks</a>.
 
