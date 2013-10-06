@@ -1,6 +1,8 @@
 Memoria
 =======
 
+<img src="https://travis-ci.org/Wildhoney/Memoria.png" />
+
 Memoria is an extensible form storage for memorising user inputs. Never again will you lose form data!
 
 Clearing Storage
