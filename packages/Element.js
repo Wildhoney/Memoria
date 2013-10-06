@@ -28,6 +28,13 @@
         key: null,
 
         /**
+         * @property _attribute
+         * @type {String}
+         * @default "value"
+         */
+        _attribute: 'value',
+
+        /**
          * @method initialise
          * Responsible for throwing an exception notifying the developer that this class should be overloaded
          * by the super object, because the `initialise` method is where the developer specifies on which event
@@ -80,7 +87,7 @@
             }
 
             // Otherwise there is a value and so we'll update the node's value to reflect it!
-            this.node.value = value;
+            this.node[this._attribute] = value;
 
         },
 
@@ -134,6 +141,17 @@
          */
         _getEventName: function _getEventName(defaultEventName) {
             return this.node.getAttribute('data-memoria-event') || defaultEventName;
+        },
+
+        /**
+         * @method _setAttribute
+         * @param name {String}
+         * By default, Memoria attempts to set the `value` of the element. However, for some elements
+         * this is not the case, and therefore this method allows the overriding of that default assumption.
+         * @private
+         */
+        _setAttribute: function _setAttribute(name) {
+            this._attribute = name;
         }
 
     };

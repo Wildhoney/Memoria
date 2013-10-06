@@ -21,7 +21,20 @@
      * @return {void}
      */
     $window.Memoria.Input.prototype.initialise = function initialise() {
-        this._attachEvent(this._getEventName('onkeyup'));
+
+        switch (this.node.getAttribute('type')) {
+
+            case ('radio'):
+                this._setAttribute('checked');
+                this._attachEvent(this._getEventName('onclick'));
+                break;
+
+            default:
+                this._attachEvent(this._getEventName('onkeyup'));
+                break;
+
+        }
+
     };
 
 })(window);

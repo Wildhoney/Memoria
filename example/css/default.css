@@ -3,6 +3,7 @@ body {
 }
 
 form ul {
+    font-family: "Helvetica Neue", "Helvetica", Arial;
     list-style-type: none;
     padding: 0;
 }
@@ -14,6 +15,11 @@ form p {
 
 form ul li {
     padding-bottom: 10px;
+}
+
+form ul li.radios {
+    height: 40px;
+    line-height: 40px;
 }
 
 form ul li label {

@@ -65,7 +65,7 @@
                         DelegatorObject = $window.Memoria[objectName],
                         saveKey         = {
                             formName    : form.getAttribute('name'),
-                            nodeName    : node.getAttribute('name')
+                            nodeName    : node.getAttribute('data-memoria-name') || node.getAttribute('name')
                         };
 
                     if (typeof DelegatorObject === 'undefined') {
