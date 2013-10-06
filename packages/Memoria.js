@@ -69,7 +69,7 @@
                             nodeName    : node.getAttribute('name')
                         };
 
-                    if (typeof delegatorObject === 'undefined') {
+                    if (typeof DelegatorObject === 'undefined') {
 
                         // Throw an exception if we're unable to find the delegator object.
                         throw 'MEMORIA: Unable to instantiate `Memoria.' + objectName + '` delegator object.';
