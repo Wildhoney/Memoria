@@ -22,6 +22,12 @@
         node: null,
 
         /**
+         * @property form
+         * @type {Object}
+         */
+        form: null,
+
+        /**
          * @property key
          * @type {Object}
          */
@@ -103,10 +109,17 @@
                 key     = this.key;
 
             // Create the namespace for the node and its related value.
-            storage[key.formName][key.nodeName] = this.node.value;
+            storage[key.formName][key.nodeName] = this.node[this._attribute];
 
             // Save the new form data into the "memoria" `localStorage` namespace.
             $localStorage.setItem('memoria', JSON.stringify(storage));
+
+            if (this.node.hasAttribute('data-memoria-name')) {
+
+                // Find any nodes with the same name and reset them if we're using the pseudo-name.
+                this._resetOthersWithSameName();
+
+            }
 
         },
 
@@ -152,6 +165,47 @@
          */
         _setAttribute: function _setAttribute(name) {
             this._attribute = name;
+        },
+
+        /**
+         * @method _resetOthersWithSameName
+         * Responsible for finding any nodes with the same name as the one we're currently trying to save,
+         * and removing its value from the `localStorage`.
+         * @private
+         */
+        _resetOthersWithSameName: function __resetOthersWithSameName() {
+
+            var storage     = this._getStorage(),
+                actualName  = this.node.getAttribute('name'),
+                nodes       = this.form.querySelectorAll('*[name="' + actualName + '"]');
+
+            // Iterate over each node we've found with the same name.
+            for (var nodeIndex = 0, maxNodes = nodes.length; nodeIndex < maxNodes; nodeIndex++) {
+
+                var node = nodes[nodeIndex];
+
+                if (node === this.node || !node.hasAttribute('data-memoria-name')) {
+                    // We don't want to affect the current node, nor do we want to affect any nodes that
+                    // don't have the `data-memoria-name` attribute set.
+                    continue;
+                }
+
+                var name = node.getAttribute('data-memoria-name');
+
+                if (!storage[this.key.formName][name]) {
+
+                    // We've found an element with the same name, but it's not in the `localStorage` so it
+                    // doesn't affect anything.
+                    continue;
+
+                }
+
+                // Otherwise we'll delete our neighbour and update the `localStorage`!
+                delete storage[this.key.formName][name];
+                $localStorage.setItem('memoria', JSON.stringify(storage));
+
+            }
+
         }
 
     };

@@ -77,6 +77,7 @@
 
                     // Otherwise we can create the related object, passing in the node and `localStorage` save key.
                     var delegator   = new DelegatorObject(node, saveKey);
+                    delegator.form  = form;
                     delegator.node  = node;
                     delegator.key   = saveKey;
                     delegator.initialise();

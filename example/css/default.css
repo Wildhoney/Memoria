@@ -17,7 +17,7 @@ form ul li {
     padding-bottom: 10px;
 }
 
-form ul li.radios {
+form ul li.force-height {
     height: 40px;
     line-height: 40px;
 }

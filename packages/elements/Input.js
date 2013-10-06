@@ -29,6 +29,11 @@
                 this._attachEvent(this._getEventName('onclick'));
                 break;
 
+            case ('checkbox'):
+                this._setAttribute('checked');
+                this._attachEvent(this._getEventName('onchange'));
+                break;
+
             default:
                 this._attachEvent(this._getEventName('onkeyup'));
                 break;
