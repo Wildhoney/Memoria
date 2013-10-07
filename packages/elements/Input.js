@@ -28,7 +28,8 @@
          * @return {Boolean}
          */
         var isHTML5NodeWithClick = function isHTML5NodeWithClick(type) {
-            var types = ['number', 'search', 'date', 'month', 'time', 'week', 'datetime', 'datetime-local', 'color'];
+            var types = ['number', 'search', 'date', 'range', 'month',
+                         'time', 'week', 'datetime', 'datetime-local', 'color'];
             return (types.indexOf(type) !== -1);
         };
 
@@ -45,13 +46,13 @@
                 this._attachEvent(this._getEventName('onclick'));
                 break;
 
-            case ('checkbox'): case ('range'):
+            case ('checkbox'):
             this._setAttribute('checked');
             this._attachEvent(this._getEventName('onchange'));
             break;
 
             default:
-                this._attachEvent(this._getEventName('onkeyup'));
+                this._attachEvent(this._getEventName(['onkeyup', 'onchange']));
                 break;
 
         }
