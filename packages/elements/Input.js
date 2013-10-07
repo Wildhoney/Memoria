@@ -30,12 +30,21 @@
                 break;
 
             case ('checkbox'):
+            case ('range'):
                 this._setAttribute('checked');
                 this._attachEvent(this._getEventName('onchange'));
                 break;
 
             case ('number'):
-                this._attachEvent(this._getEventName(['onchange', 'onkeyup']));
+            case ('search'):
+            case ('date'):
+            case ('month'):
+            case ('time'):
+            case ('week'):
+            case ('datetime'):
+            case ('datetime-local'):
+            case ('color'):
+                this._attachEvent(this._getEventName(['onchange', 'onkeyup', 'onclick']));
                 break;
 
             default:
