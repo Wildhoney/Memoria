@@ -78,22 +78,34 @@
 
         /**
          * @method _attachEvent
-         * @param eventName {String}
+         * @param eventNames {Array}
          * Responsible for attaching the Memoria event to the given event name.
          * @private
          */
-        _attachEvent: function _attachEvent(eventName) {
+        _attachEvent: function _attachEvent(eventNames) {
 
-            if (typeof this.node[eventName] === 'undefined') {
-
-                // Throw an exception if we're unable to find the specified event.
-                throw 'MEMORIA: Unable to find the `' + eventName + '` event on `' +
-                        this.node.nodeName.toLowerCase() +'` node.';
-
+            if (!Array.isArray(eventNames)) {
+                // Transform the string into an array if it isn't already.
+                eventNames = [eventNames];
             }
 
-            // Attach the event to the `_save` method.
-            this.node[eventName] = this._save.bind(this);
+            // Iterate over each of the event types for the current node.
+            for (var eventIndex = 0, maxEvents = eventNames.length; eventIndex < maxEvents; eventIndex++) {
+
+                var eventName = eventNames[eventIndex];
+
+                if (typeof this.node[eventName] === 'undefined') {
+
+                    // Throw an exception if we're unable to find the specified event.
+                    throw 'MEMORIA: Unable to find the `' + eventName + '` event on `' +
+                        this.node.nodeName.toLowerCase() +'` node.';
+
+                }
+
+                // Attach the event to the `_save` method.
+                this.node[eventName] = this._save.bind(this);
+
+            }
 
         },
 
