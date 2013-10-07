@@ -22,6 +22,22 @@
      */
     $window.Memoria.Input.prototype.initialise = function initialise() {
 
+        /**
+         * @method isHTML5NodeWithClick
+         * @param type
+         * @return {Boolean}
+         */
+        var isHTML5NodeWithClick = function isHTML5NodeWithClick(type) {
+            var types = ['number', 'search', 'date', 'month', 'time', 'week', 'datetime', 'datetime-local', 'color'];
+            return (types.indexOf(type) !== -1);
+        };
+
+        if (isHTML5NodeWithClick(this.node.getAttribute('type'))) {
+            // Determine if it's a common HTML5 node.
+            this._attachEvent(this._getEventName(['onchange', 'onkeyup', 'onclick']));
+            return;
+        }
+
         switch (this.node.getAttribute('type')) {
 
             case ('radio'):
@@ -29,23 +45,10 @@
                 this._attachEvent(this._getEventName('onclick'));
                 break;
 
-            case ('checkbox'):
-            case ('range'):
-                this._setAttribute('checked');
-                this._attachEvent(this._getEventName('onchange'));
-                break;
-
-            case ('number'):
-            case ('search'):
-            case ('date'):
-            case ('month'):
-            case ('time'):
-            case ('week'):
-            case ('datetime'):
-            case ('datetime-local'):
-            case ('color'):
-                this._attachEvent(this._getEventName(['onchange', 'onkeyup', 'onclick']));
-                break;
+            case ('checkbox'): case ('range'):
+            this._setAttribute('checked');
+            this._attachEvent(this._getEventName('onchange'));
+            break;
 
             default:
                 this._attachEvent(this._getEventName('onkeyup'));
