@@ -53,6 +53,17 @@ Since `input` elements with the type `radio` have the same names, they are indis
 <input name="response" data-memoria-name="response-nope" type="radio" />
 ```
 
+Ignoring Inputs
+-------
+
+By default Memoria will attempt to find all `input`, `select`, `textarea` fields. However, sometimes you not want a particular node to use Memoria. For this you can simply define the `data-memoria-ignore` attribute on any node.
+
+```javascript
+<div class="ui form small input">
+    <input data-memoria-ignore type="text" name="name" id="name" data-memoria-event="onkeyup" />
+</div>
+```
+
 Custom Nodes
 -------
 

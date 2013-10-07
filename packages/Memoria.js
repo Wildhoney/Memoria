@@ -82,6 +82,11 @@
                         continue;
                     }
 
+                    if (node.hasAttribute('data-memoria-ignore')) {
+                        // Ignore nodes with the `data-memoria-ignore` attribute set.
+                        continue;
+                    }
+
                     var isCustom        = node.hasAttribute('data-memoria-input'),
                         objectName      = isCustom  ? 'Element'
                                                     : node.nodeName.charAt(0).toUpperCase() + node.nodeName.slice(1).toLowerCase(),
