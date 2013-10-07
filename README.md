@@ -15,6 +15,16 @@ Although Memoria is zero configuration, there are a few requirements to get it w
  * All `input` fields with `type` of `radio` must be <a href="https://github.com/Wildhoney/Memoria#problem-of-radio-inputs">implemented specially</a>.
  * All custom input fields must be implemented using the <a href="https://github.com/Wildhoney/Memoria#custom-nodes">provided hooks</a>.
 
+Unit Tests
+-------
+
+All of the unit tests for Memoria are written in <a href="http://pivotal.github.io/jasmine/" target="_blank">Jasmine</a> and can be run with `grunt test`.
+
+Contributions
+-------
+
+You're more than welcome to contribute to the Memoria project! Please include unit tests for any additional features you add, and I'll be more than happy to merge it in!
+
 Clearing Storage
 -------
 
