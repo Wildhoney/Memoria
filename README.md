@@ -58,7 +58,7 @@ Ignoring Inputs
 
 By default Memoria will attempt to find all `input`, `select`, `textarea` fields. However, sometimes you not want a particular node to use Memoria. For this you can simply define the `data-memoria-ignore` attribute on any node.
 
-```javascript
+```html
 <div class="ui form small input">
     <input data-memoria-ignore type="text" name="name" id="name" data-memoria-event="onkeyup" />
 </div>
@@ -69,9 +69,11 @@ HTML5 Input Fields
 
 We support <strong>all</strong> HTML5 input fields &ndash; the Baker's Dozen, as they're endearingly known. As with all native `input` fields, there is zero configuration and they will all work out-of-the-box.
 
+```html
 <div class="ui form small input">
     <input type="number" id="age" name="age" value="16" />
 </div>
+```
 
 HTML5 inputs are: `color`, `date`, `datetime`, `datetime-local`, `email`, `month`, `number`, `range`, `search`, `tel`, `time`, `url` and `week`!
 
