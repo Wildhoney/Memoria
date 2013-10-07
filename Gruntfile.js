@@ -17,6 +17,15 @@ module.exports = function(grunt) {
                 src: ['packages/Memoria.js', 'packages/Element.js', 'packages/elements/*.js'],
                 dest: 'dist/<%= pkg.buildName %>.min.js'
             }
+        },
+        jasmine: {
+            pivotal: {
+                src: ['packages/Memoria.js', 'packages/Element.js', 'packages/elements/*.js'],
+                options: {
+                    specs: 'tests/spec.js',
+                    helpers: ['./bower_components/jquery/jquery.js', './node_modules/jasmine-jquery/lib/jasmine-jquery.js']
+                }
+            }
         }
     });
 
@@ -24,8 +33,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
 
-    grunt.registerTask('test', ['jshint']);
+    grunt.registerTask('test', ['jshint', 'jasmine']);
     grunt.registerTask('build', ['uglify']);
-    grunt.registerTask('default', ['jshint', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'jasmine', 'uglify']);
 
 };
