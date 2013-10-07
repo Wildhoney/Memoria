@@ -34,6 +34,10 @@
                 this._attachEvent(this._getEventName('onchange'));
                 break;
 
+            case ('number'):
+                this._attachEvent(this._getEventName(['onchange', 'onkeyup']));
+                break;
+
             default:
                 this._attachEvent(this._getEventName('onkeyup'));
                 break;
