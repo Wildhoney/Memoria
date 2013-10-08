@@ -38,6 +38,59 @@
             $localStorage.clear('memoria');
         });
 
+        describe('Standard', function() {
+
+            it ('Can support the `select` with `onchange` event', function() {
+                var element             = document.querySelector('.select');
+                element.selectedIndex   = 2;
+                $simulateEvent(element, 'change');
+                expect($data('standard-test-form', 'select')).toEqual(2);
+
+                var option = element.options[element.selectedIndex];
+                expect(option.innerHTML).toEqual('Third Option');
+            });
+
+            it ('Can support the `textarea` with `onkeyup` event', function() {
+                var element     = document.querySelector('.textarea');
+                element.value   = 'Wildhoney';
+                $simulateEvent(element, 'keyup');
+                expect($data('standard-test-form', 'textarea')).toEqual('Wildhoney');
+            });
+
+            it ('Can support the `input` with type `text` with `onkeyup` event', function() {
+                var element     = document.querySelector('.text');
+                element.value   = 'Adam';
+                $simulateEvent(element, 'keyup');
+                expect($data('standard-test-form', 'text')).toEqual('Adam');
+            });
+
+            it ('Can support the `input` with type `text` with `onchange` event', function() {
+                var element     = document.querySelector('.text');
+                element.value   = 'Adam';
+                $simulateEvent(element, 'change');
+                expect($data('standard-test-form', 'text')).toEqual('Adam');
+            });
+
+            it ('Can support the `input` with type `radio` with `onclick` event', function() {
+                var firstElement = document.querySelector('.firstRadio');
+                firstElement.checked = true;
+                $simulateEvent(firstElement, 'click');
+                expect($data('standard-test-form', 'firstRadio')).toEqual(true);
+
+                var secondElement = document.querySelector('.secondRadio');
+                $simulateEvent(secondElement, 'click');
+                expect($data('standard-test-form', 'secondRadio')).toEqual(false);
+            });
+
+            it ('Can support the `input` with type `checkbox` with `onchange` event', function() {
+                var element = document.querySelector('.checkbox');
+                element.checked = true;
+                $simulateEvent(element, 'change');
+                expect($data('standard-test-form', 'checkbox')).toEqual(true);
+            });
+
+        });
+
         describe('HTML5', function() {
 
             it('Can support the `input` with type `number`;', function() {
