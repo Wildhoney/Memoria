@@ -2,14 +2,17 @@
 
     describe('Memoria', function() {
 
-        var $simulateEvent, $data;
+        var $simulateEvent, $data, $memoria;
 
         beforeEach(function() {
 
-            jasmine.getFixtures().fixturesPath = './tests/fixtures';
-            loadFixtures('html5.html');
+            $localStorage.clear('memoria');
 
-            $window.memoria._initialiseForms();
+            jasmine.getFixtures().fixturesPath = './tests/fixtures';
+            loadFixtures('elements.html');
+
+            // Instantiate Memoria again.
+            $memoria = new $window.Memoria();
 
             $simulateEvent = function simulateEvent(element, eventName) {
 
@@ -29,6 +32,10 @@
                 return data[formName][elementName];
             }
 
+        });
+
+        afterEach(function() {
+            $localStorage.clear('memoria');
         });
 
         describe('HTML5', function() {
