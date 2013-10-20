@@ -102,14 +102,24 @@
                 </select>
             </li>
             <li class="force-height">
-                <label>Happy?</label>
-                <input type="checkbox" name="happy" />
+                <label for="happy">Happy?</label>
+                <input type="checkbox" id="happy" name="happy" />
             </li>
             <li>
                 <label for="message">Message:</label>
                 <div class="ui form">
                     <textarea name="message" id="message"></textarea>
                 </div>
+            </li>
+            <li>
+                <label for="cities">Cities?</label>
+                <select multiple="true" name="cities" id="cities" class="cities">
+                    <option>London</option>
+                    <option>Paris</option>
+                    <option>Moscow</option>
+                    <option>Rio de Janeiro</option>
+                    <option>Hong Kong</option>
+                </select>
             </li>
             <li>
                 <input class="ui positive button" type="submit" value="Send Away..." />

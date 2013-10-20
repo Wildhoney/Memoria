@@ -53,6 +53,7 @@
 
             delete storage[form];
             $localStorage.memoria = JSON.stringify(storage);
+            return true;
 
         },
 
@@ -105,7 +106,7 @@
                     }
 
                     // Otherwise we can create the related object, passing in the node and `localStorage` save key.
-                    var delegator   = new DelegatorObject(node, saveKey);
+                    var delegator   = new DelegatorObject();
                     delegator.form  = form;
                     delegator.node  = node;
                     delegator.key   = saveKey;

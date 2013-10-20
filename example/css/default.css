@@ -38,6 +38,12 @@ form ul li select {
     border: 1px solid lightgrey;
 }
 
+form ul li select.cities {
+    height: 100px;
+    width: 300px;
+    border: 1px solid lightgrey;
+}
+
 form ul li div.options {
     float: left;
     width: 200px;
