@@ -100,7 +100,11 @@ By default, Memoria supports a handful of node types. However, what if you're us
 </div>
 ```
 
-From the above code &ndash; as seen in <strong>example/index.html</strong>, Memoria will be looking for an `object` called `Memoria.Dropdown`.
+From the above code &ndash; as seen in <strong>example/index.html</strong>, Memoria will be looking for an `object` called `Memoria.Choice`.
+
+ * `data-memoria-input` &ndash; name of the delegator class to handle the callbacks;
+ * `data-memoria-event` &ndash; on which event to respond to the element;
+ * `data-memoria-name` &ndash; name of the input for when it's stored in `localStorage`;
 
 Memoria provides two callbacks:
 
