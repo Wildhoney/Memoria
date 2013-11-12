@@ -21,8 +21,14 @@
      * @return {void}
      */
     $window.Memoria.Select.prototype.initialise = function initialise() {
+
+        if (this.node.hasAttribute('multiple')) {
+            this.attachObserver($window.Memoria.Observer.MultipleSelect);
+        }
+
         this._setAttribute('selectedIndex');
         this._attachEvent(this._getEventName('onchange'));
+
     };
 
 })(window);

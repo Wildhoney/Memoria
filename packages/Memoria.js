@@ -25,6 +25,9 @@
 
     };
 
+    // Define "Observer" namespace.
+    $window.Memoria.Observer = {};
+
     /**
      * @property prototype
      * @type {Object}
