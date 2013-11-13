@@ -116,7 +116,7 @@
 
                     if (isCustom) {
                         // Attach the observer if we're dealing with a custom node.
-                        delegator.attachObserver($window.Memoria[node.getAttribute('data-memoria-input')]);
+                        delegator.attachObserver($window.Memoria.Observer[node.getAttribute('data-memoria-input')]);
                     }
 
                     delegator.initialise();
