@@ -1,7 +1,7 @@
 {
   "name": "memoria-js",
   "buildName": "memoria",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Extensible form storage for memorising user inputs.",
   "main": "index.js",
   "directories": {
@@ -28,5 +28,8 @@
     "grunt-contrib-uglify": "~0.2.4",
     "grunt-contrib-jasmine": "~0.5.2",
     "jasmine-jquery": "~1.3.3"
-  }
+  },
+  "components": [
+      "packages/Memoria.js", "packages/observers/*.js", "packages/Element.js", "packages/elements/*.js"
+  ]
 }

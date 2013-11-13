@@ -1,10 +1,12 @@
 module.exports = function(grunt) {
 
+    var pkg = grunt.file.readJSON('package.json');
+
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
-            all: ['packages/Memoria.js', 'packages/Element.js', 'packages/elements/*.js'],
+            all: pkg.components,
             options: {
                 jshintrc: '.jshintrc'
             }
@@ -14,13 +16,13 @@ module.exports = function(grunt) {
                 banner: '/*! <%= pkg.name %> by <%= pkg.author %> created on <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: ['packages/Memoria.js', 'packages/Element.js', 'packages/elements/*.js'],
+                src: pkg.components,
                 dest: 'dist/<%= pkg.buildName %>.min.js'
             }
         },
         jasmine: {
             pivotal: {
-                src: ['packages/Memoria.js', 'packages/Element.js', 'packages/elements/*.js'],
+                src: pkg.components,
                 options: {
                     specs: 'tests/spec.js',
                     helpers: ['./bower_components/jquery/jquery.js', './node_modules/jasmine-jquery/lib/jasmine-jquery.js']
