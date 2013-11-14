@@ -110,6 +110,16 @@ From the above code &ndash; as seen in <strong>example/index.html</strong>, Memo
  * `data-memoria-event` &ndash; on which event to respond to the element;
  * `data-memoria-name` &ndash; name of the input for when it's stored in `localStorage`;
 
+If it's necessary, you can also specify multiple events with `data-memoria-event` by separating them with a comma.
+
+```html
+<div class="options"
+    data-memoria-input="Choice" data-memoria-event="onclick, ondblclick" data-memoria-name="gender">
+    <div class="option" data-value="Male">Male</div>
+    <div class="option" data-value="Female">Female</div>
+</div>
+```
+
 Memoria provides two callbacks:
 
  * `onRetrieval` &ndash; invoked when `localStorage` has found a value pertaining to the current custom element (`data-memoria-name`). Should be used to setup your element visually based on the saved value;

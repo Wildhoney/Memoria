@@ -55,14 +55,22 @@
          */
         initialise: function initialise() {
 
-            var eventName = this.node.getAttribute('data-memoria-event');
+            var attribute   = this.node.getAttribute('data-memoria-event'),
+                eventNames  = [];
 
-            if (!eventName) {
+            if (!attribute) {
                 // We were unable to find the event name automatically.
                 throw 'MEMORIA: Unable to automatically find the event name.';
             }
 
-            this._attachEvent(eventName);
+            // Explode the event names by comma, because you can specify multiple events if necessary.
+            eventNames = attribute.split(/,/);
+
+            // Iterate over each of the event names for the current node.
+            for (var eventIndex = 0, maxEvents = eventNames.length; eventIndex < maxEvents; eventIndex++) {
+                var eventName = eventNames[eventIndex].trim();
+                this._attachEvent(eventName);
+            }
 
         },
 
