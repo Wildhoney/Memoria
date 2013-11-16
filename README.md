@@ -122,5 +122,5 @@ If it's necessary, you can also specify multiple events with `data-memoria-event
 
 Memoria provides two callbacks:
 
- * `onRetrieval` &ndash; invoked when `localStorage` has found a value pertaining to the current custom element (`data-memoria-name`). Should be used to setup your element visually based on the saved value;
- * `onEvent` &ndash; invoked when the user triggers the event (`data-memoria-event`). Should be used to return the value you wish to save in `localStorage`;
+ * `setupElement` &ndash; invoked when `localStorage` has found a value pertaining to the current custom element (`data-memoria-name`). Should be used to setup your element visually based on the saved value;
+ * `eventFired` &ndash; invoked when the user triggers the event (`data-memoria-event`). Should be used to return the value you wish to save in `localStorage`;

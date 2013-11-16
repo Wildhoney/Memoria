@@ -19,7 +19,7 @@
 
         Memoria.Observer.Choice = {
 
-            onRetrieval: function(container, value) {
+            setupElement: function(container, value) {
 
                 // Find the node with the `data-value` attribute set to the current value from
                 // the `localStorage`.
@@ -28,7 +28,7 @@
 
             },
 
-            onEvent: function(event, container) {
+            eventFired: function(event, container) {
 
                 // Find the other nodes.
                 var nodes = container.querySelectorAll('div.option');

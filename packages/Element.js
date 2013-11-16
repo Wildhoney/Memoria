@@ -134,10 +134,10 @@
                 return;
             }
 
-            if (this.observer && typeof this.observer.onRetrieval === 'function') {
+            if (this.observer && typeof this.observer.setupElement === 'function') {
 
                 // We have an observer and therefore we can let that tell us what to do with the value.
-                this.observer.onRetrieval(this.node, value);
+                this.observer.setupElement(this.node, value);
 
             } else {
 
@@ -164,10 +164,10 @@
             var storage = this._getStorage(),
                 key     = this.key;
 
-            if (this.observer && typeof this.observer.onEvent === 'function') {
+            if (this.observer && typeof this.observer.eventFired === 'function') {
 
                 // We have an observer and therefore we'll retrieve the value from there instead.
-                storage[key.formName][key.nodeName] = this.observer.onEvent(event, this.node);
+                storage[key.formName][key.nodeName] = this.observer.eventFired(event, this.node);
 
             } else {
 

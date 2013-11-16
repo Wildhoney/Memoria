@@ -10,12 +10,12 @@
     $window.Memoria.Observer.MultipleSelect = {
 
         /**
-         * @method onEvent
+         * @method eventFired
          * @param event {Object}
          * @param node {Object}
          * @return {Array}
          */
-        onEvent: function onEvent(event, node) {
+        eventFired: function eventFired(event, node) {
 
             var selectedIndexes = [];
 
@@ -38,12 +38,12 @@
         },
 
         /**
-         * @method onRetrieval
+         * @method setupElement
          * @param node {Object}
          * @param value {Array}
          * @return {void}
          */
-        onRetrieval: function onRetrieval(node, value) {
+        setupElement: function setupElement(node, value) {
 
             // Iterate over each OPTION in the SELECT node, highlighting them if they should be.
             for (var index = 0, maxOptions = node.options.length; index < maxOptions; index++) {
