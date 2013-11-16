@@ -124,3 +124,5 @@ Memoria provides two callbacks:
 
  * `setupElement` &ndash; invoked when `localStorage` has found a value pertaining to the current custom element (`data-memoria-name`). Should be used to setup your element visually based on the saved value;
  * `eventFired` &ndash; invoked when the user triggers the event (`data-memoria-event`). Should be used to return the value you wish to save in `localStorage`;
+
+For an example of a custom element, please refer to `<a href="https://github.com/Wildhoney/Memoria/blob/master/packages/observers/MultipleSelect.js">Memoria.Observer.MultipleSelect</a>`.
