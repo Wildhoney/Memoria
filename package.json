@@ -1,7 +1,7 @@
 {
   "name": "memoria-js",
   "buildName": "memoria",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Extensible form storage for memorising user inputs with localStorage.",
   "main": "index.js",
   "directories": {

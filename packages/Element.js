@@ -167,7 +167,15 @@
             if (this.observer && typeof this.observer.eventFired === 'function') {
 
                 // We have an observer and therefore we'll retrieve the value from there instead.
-                storage[key.formName][key.nodeName] = this.observer.eventFired(event, this.node);
+                var value = this.observer.eventFired(event, this.node);
+
+                if (typeof value === 'undefined') {
+                    // Throw an exception because the user didn't return a value when they should have.
+                    throw 'MEMORIA: You must return a value from the `eventFired` method.';
+                }
+
+                // Save the value in `localStorage`.
+                storage[key.formName][key.nodeName] = value;
 
             } else {
 
