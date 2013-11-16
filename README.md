@@ -27,12 +27,12 @@ All of the unit tests for Memoria are written in <a href="http://pivotal.github.
 Contributions
 -------
 
-You're more than welcome to contribute to the Memoria project! Please include unit tests for any additional features you add, and I'll be more than happy to merge it in!
+You're more than welcome to contribute to the Memoria project! Please include unit tests and it'll be more than happily merged in.
 
 Clearing Storage
 -------
 
-Since a form submission is no guarantee that the form data was retrieved successfully, Memoria leaves it entirely up to you to clear the stored form data.
+Since a form submission is no guarantee that the form data was received successfully, Memoria leaves it entirely up to you to clear the stored form data.
 
 Simply invoke `memoria.clear('form-name');` on your form submission, AJAX request `onSuccess` handler, etc... once you're sure the data has been safely received.
 
@@ -81,7 +81,7 @@ By default Memoria will attempt to find all `input`, `select`, `textarea` fields
 HTML5 Input Fields
 -------
 
-We support <strong>all</strong> HTML5 input fields &ndash; the Baker's Dozen, as they're endearingly known. As with all native `input` fields, there is zero configuration and they will all work out-of-the-box.
+Memoria supports <strong>all</strong> HTML5 input fields &ndash; the Baker's Dozen as they're endearingly known. As with all native `input` fields, there is zero configuration and they will all work out-of-the-box.
 
 ```html
 <div class="ui form small input">
@@ -94,7 +94,7 @@ HTML5 inputs are: `color`, `date`, `datetime`, `datetime-local`, `email`, `month
 Custom Nodes
 -------
 
-By default, Memoria supports a handful of node types. However, what if you're using a custom JavaScript dropdown? What then? Luckily you're able to indicate a form input by applying the `data-memoria-input` attribute with a value &ndash; the value will be used to load your custom delegator object.
+By default, Memoria supports all default `input` elements. However, what if you're using a custom JavaScript dropdown? What then? Luckily you're able to indicate a form input by applying the `data-memoria-input` attribute with a value &ndash; the value will be used to load your custom delegator object.
 
 ```html
 <div class="options"
@@ -107,10 +107,10 @@ By default, Memoria supports a handful of node types. However, what if you're us
 From the above code &ndash; as seen in <strong>example/index.html</strong>, Memoria will be looking for an `object` called `Memoria.Observer.Choice`.
 
  * `data-memoria-input` &ndash; name of the delegator class to handle the callbacks;
- * `data-memoria-event` &ndash; on which event to respond to the element;
+ * `data-memoria-event` &ndash; on which event(s) to respond to the element;
  * `data-memoria-name` &ndash; name of the input for when it's stored in `localStorage`;
 
-If it's necessary, you can also specify multiple events with `data-memoria-event` by separating them with a comma.
+If it's necessary, you can also specify multiple events with `data-memoria-event` by separating them with a comma &ndash; don't worry about whitespace, Memoria will trim that for you.
 
 ```html
 <div class="options"
