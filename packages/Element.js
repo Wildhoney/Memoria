@@ -55,8 +55,11 @@
          */
         initialise: function initialise() {
 
-            var attribute   = this.node.getAttribute('data-memoria-event'),
-                eventNames  = [];
+            var attribute       = this.node.getAttribute('data-memoria-event'),
+                prepositions    = ['click', 'dblclick', 'mousedown', 'mousemove', 'mouseover', 'mouseleave',
+                                   'mouseout', 'mouseup', 'keydown', 'keyup', 'keypress', 'blur', 'change',
+                                   'focus', 'reset', 'select', 'submit'],
+                eventNames      = [];
 
             if (!attribute) {
                 // We were unable to find the event name automatically.
@@ -68,8 +71,16 @@
 
             // Iterate over each of the event names for the current node.
             for (var eventIndex = 0, maxEvents = eventNames.length; eventIndex < maxEvents; eventIndex++) {
+
                 var eventName = eventNames[eventIndex].trim();
+
+                // Determine if the `eventName` requires "on" being prepended.
+                if (eventName.substr(0, 2) !== 'on' && prepositions.indexOf(eventName) !== -1) {
+                    eventName = 'on' + eventName;
+                }
+
                 this._attachEvent(eventName);
+
             }
 
         },
