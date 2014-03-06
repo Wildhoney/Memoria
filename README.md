@@ -7,6 +7,8 @@ Memoria
 &nbsp;
 <img src="https://www.codeship.io/projects/c571f800-7276-0131-62fb-262d8449eba4/status" />
 
+**Demo:** http://wildhoney.io/memoria/example
+
 Memoria is an extensible form storage for memorising user inputs. Never again will you lose form data!
 
 Install via npm: `npm install memoria-js`
