@@ -6,7 +6,7 @@
     "Adam Timberlake <adam.timberlake@gmail.com>"
   ],
   "description": "Extensible form storage for memorising user inputs.",
-  "main": "packages/Memoria.js",
+  "main": "dist/memoria.min.js",
   "license": "MIT",
   "ignore": [
     "**/.*",
