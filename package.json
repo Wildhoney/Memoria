@@ -31,8 +31,8 @@
   },
   "components": [
     "packages/Memoria.js",
-    "packages/observers/*.js",
     "packages/Element.js",
+    "packages/observers/*.js",
     "packages/elements/*.js"
   ]
 }
