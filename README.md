@@ -26,7 +26,7 @@ Although Memoria is zero configuration, there are a few requirements to get it w
 Unit Tests
 -------
 
-All of the unit tests for Memoria are written in <a href="http://pivotal.github.io/jasmine/" target="_blank">Jasmine</a> and can be run with `grunt test`.
+All of the unit tests for Memoria are written in <a href="http://jasmine.github.io/" target="_blank">Jasmine</a> and can be run with `grunt test`.
 
 Contributions
 -------
